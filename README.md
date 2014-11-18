@@ -62,3 +62,12 @@ npm start
 ```
 
 Now browse to the app at `http://localhost:8000/app/index.html`.
+
+### Create menu/submenu and corresponding page content
+
+1. Register the menu in the app/menu.json
+2. Create a new folder under app/ which contains i) a html page ii) a javascript file contains angularjs part of the new view
+3. Register the module created in the app/app.js
+4. Import the javascript file created in step 2 in the app/index.html
+
+In step 1, if the child/children menu has been registered, repetition from step 2 to step 4 is required for each child menu.
