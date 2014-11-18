@@ -1,0 +1,34 @@
+{"menuItems": [{
+        "label": "Home",
+        "path": "home",
+        "code": "home",
+        "isRoot": true,
+        "children": []
+    }, {
+        "label": "Test-views",
+        "path": "",
+        "code": "views",
+        "children": [{
+            "label": "Test-view1",
+            "path": "view1",
+            "code": "views.view1",
+            "children": []
+        }, {
+            "label": "Test-view2",
+            "path": "",
+            "code": "views.view2",
+            "children": [{
+                "label": "Test-view2-child",
+                "path": "view2",
+                "code": "views.view2.child"
+            }]
+        }]
+    }, {
+        "label": "Test-single-fn",
+        "path": "",
+        "code": "testSingleFn",
+        "children": []
+    }],
+    "currentSelectedCode": null,
+    "isVisible": true
+}

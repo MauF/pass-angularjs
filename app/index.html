@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="passInsuranceShell" class="no-js" data-ng-cloak>
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PASS_Insurance</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" href="app/favicon.ico">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="bower_components/angular-material/themes/default-theme.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="app-animation.css">
+</head>
+
+<body layout="vertical" layout-fill class="layout-demo full-layout-demo" data-ng-controller="bodyCtrl as main">
+    <header style="background: url('bg_header.jpg')">
+        <div layout="horizontal" layout-align="start">
+            <img src="images/logo.png">
+        </div>
+    </header>
+
+    <div layout="vertical" layout-sm="horizontal" style="height: 37px; background: #4c6d8c;background: -moz-linear-gradient(top, #4c6d8c 50%, #21486f 50%);background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #4c6d8c), color-stop(50%, #21486f));background: -webkit-linear-gradient(top, #4c6d8c 50%, #21486f 50%);background: -o-linear-gradient(top, #4c6d8c 50%, #21486f 50%);background: -ms-linear-gradient(top, #4c6d8c 50%, #21486f 50%);background: linear-gradient(to bottom, #4c6d8c 50%, #21486f 50%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4c6d8c', endColorstr='#21486f', GradientType=0);">
+        <!--         <button ng-click="test.togleMenu()" class="md-primary">
+            Toggle left
+        </button> -->
+<!--         <div layout="horizontal" layout-align="end">
+            <md-progress-circular md-theme="default" mode="indeterminate"></md-progress-circular>
+        </div> -->
+    </div>
+
+    <div flex layout="vertical" layout-sm="horizontal" style="background: #cecece;background: -moz-linear-gradient(top, #cecece 2%, #ffffff 99%);background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, #cecece), color-stop(99%, #ffffff));background: -webkit-linear-gradient(top, #cecece 2%, #ffffff 99%);background: -o-linear-gradient(top, #cecece 2%, #ffffff 99%);background: -ms-linear-gradient(top, #cecece 2%, #ffffff 99%);background: linear-gradient(to bottom, #cecece 2%, #ffffff 99%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cecece', endColorstr='#ffffff', GradientType=0);">
+        <!-- <section layout="horizontal" flex> -->
+        <!-- <md-sidenav flex-sm="33" flex-md="20" component-id="menu"> -->
+        <aside flex-sm="33" flex-md="20" style="background: #587c9e;" data-ng-hide="!main.menu.isVisible" class="nga-fast nga-stagger nga-rotate-left">
+            <!-- <ul class="menu">
+                <li class="parent">
+                    <a style="text-decoration: none;" href="#/home">
+                        <div class="vocemenu">Home</div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu">
+                <li class="children">
+                    <a style="text-decoration: none;" href="#/view1">
+                        <div class="vocemenu">view1</div>
+                    </a>
+                </li>
+                <li class="children">
+                    <a style="text-decoration: none;" href="#/view2">
+                        <div class="vocemenu">view2</div>
+                    </a>
+                </li>
+            </ul> -->
+            <rgi-menu menu-obj="main.menu"></rgi-menu>
+        </aside>
+        <!-- </md-sidenav> -->
+        <!-- </section> -->
+        <div layout="vertical" layout-align="space-around">
+            <div id="menufolding">
+                <a id="folding" style="cursor: pointer;" data-ng-click="main.toggleMenu()">
+                    <img src="images/foldMenu.png" id="foldingmenu" data-ng-if="main.menu.isVisible" class="nga-fast nga-stagger nga-rotate-right">
+                    <img src="images/unfoldMenu.png" id="foldingmenu" data-ng-if="!main.menu.isVisible" class="nga-fast nga-stagger nga-rotate-left">
+                </a>
+            </div>
+            <div></div>
+        </div>
+
+        <main flex layout="vertical">
+            <!--[if lt IE 7]>
+              <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+            <rgi-menu-breadcrumb menu-obj="main.menu"></rgi-menu-breadcrumb>
+
+            <div layout="vertical" data-ng-view class="nga-fast nga-stagger nga-slide-right"></div>
+        </main>
+
+    </div>
+
+    <!--     <footer>
+        <div layout="horizontal" layout-align="end">Angular seed app: v
+            <span app-version></span>
+        </div>
+    </footer> -->
+
+    <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/hammerjs/hammer.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="app.js"></script>
+    <script src="app-controllers.js"></script>
+    <script src="app-services.js"></script>
+    <script src="app-directives.js"></script>
+    <script src="view1/view1.js"></script>
+    <script src="view2/view2.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
+</body>
+
+</html>

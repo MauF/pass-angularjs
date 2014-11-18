@@ -1,0 +1,90 @@
+<!--
+<script type="text/ng-template" id="rgi-menu-recursive-tpl.html">
+    <li data-ng-class="{'parent':menuItem.isRoot,'current':!menuItem.isRoot && menuItem.isSelected}">
+        <a style="text-decoration: none;" href="#/{{menuItem.path}}">
+            <div layout="horizontal" class="vocemenu" data-ng-click="selectMenu(menuItem)">
+                <span data-ng-repeat="time in getNumber(menuItem.level) track by $index">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                {{menuItem.label}}
+                <span data-ng-if="menuObj.currentSelectedCode == menuItem.code">&larr;</span>
+                <div layout="horizontal" layout-align="end" data-ng-if="!menuItem.isRoot && menuItem.children.length >= 1 && menuItem.isSelected">
+                    <img src="downarrow.gif">
+                </div>
+                <div layout="horizontal" layout-align="end" data-ng-if="menuItem.isRoot || (menuItem.children.length >= 1 && !menuItem.isSelected)">
+                    <img src="leftarrow.gif">
+                </div>
+            </div>
+        </a>
+    </li>
+    <div data-ng-hide="!menuItem.isSelected">
+        <ul class="menu" data-ng-repeat="menuItem in menuItem.children" data-ng-include="'rgi-menu-recursive-tpl.html'">
+    </div>
+    </ul>
+</script>
+
+<ul class="menu" data-ng-repeat="menuItem in menuObj.menuItems" data-ng-include="'rgi-menu-recursive-tpl.html'">
+</ul>
+-->
+<script type="text/ng-template" id="rgi-menu-recursive-tpl.html">
+    <div data-ng-class="{'parent':menuItem.isRoot,'current':!menuItem.isRoot && menuObj.currentSelectedCode == menuItem.code}">
+        <a style="font-weight: bold;color: #FFFFFF; text-decoration: none;" href="#/{{menuItem.path}}">
+            <div class="vocemenu" data-ng-click="selectMenu(menuItem)">
+                <div>
+                    <span data-ng-repeat="time in getNumber(menuItem.level) track by $index">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    {{menuItem.label}}
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="nga-fast nga-stagger-fast nga-rotate-down" data-ng-hide="!menuItem.isSelected">
+        <div class="menu" data-ng-repeat="menuItem in menuItem.children" data-ng-include="'rgi-menu-recursive-tpl.html'">
+        </div>
+    </div>
+</script>
+
+<div class="menu nga-fast nga-stagger-fast nga-rotate-down" data-ng-repeat="menuItem in menuObj.menuItems" data-ng-include="'rgi-menu-recursive-tpl.html'">
+</div>
+
+<!-- {{menuObj.currentSelectedCode}} -->
+
+<!-- <pre >{{menuObj|json}}</pre-content> -->
+
+
+<!-- <ul class="menu" data-ng-hide="menuObj.selectedMenuItem" data-ng-repeat="menuItem in menuObj.menuItems">
+    <li data-ng-class="{'children':menuItem.children.length > 0, 'current': isCurrentMenuSelected(menuItem)}">
+        <a style="text-decoration: none;" href="#/{{menuItem.path}}">
+            <div class="vocemenu" data-ng-click="selectMenu(menuItem)">{{menuItem.label}}</div>
+        </a>
+    </li>
+</ul> -->
+<!-- <ul class="menu" data-ng-show="menuObj.selectedMenuItem" data-ng-repeat="menuItem in menuObj.selectedMenuItem.children">
+    <li data-ng-class="{'children':menuItem.children.length > 0, 'current': isCurrentMenuSelected(menuItem), 'selected' : true}">
+        <a style="text-decoration: none;" href="#/{{menuItem.path}}">
+            <div class="vocemenu" data-ng-click="selectMenu(menuItem)">{{menuItem.label}}</div>
+        </a>
+    </li>
+</ul> -->
+
+<!-- <pre style="color: white;">{{menuObj.selectedMenuItem|json}}</pre> -->
+
+<!-- <ul class="menu">
+    <li class="parent">
+        <a style="text-decoration: none;">
+            <div class="vocemenu">parent</div>
+        </a>
+    </li>
+    <li class="children">
+        <a style="text-decoration: none;">
+            <div class="vocemenu">children</div>
+        </a>
+    </li>
+    <li class="selected">
+        <a style="text-decoration: none;">
+            <div class="vocemenu">selected</div>
+        </a>
+    </li>
+    <li class="current">
+        <a style="text-decoration: none;">
+            <div class="vocemenu">current</div>
+        </a>
+    </li>
+</ul> -->

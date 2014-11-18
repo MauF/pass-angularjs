@@ -1,0 +1,13 @@
+<div style="padding: 10px;">
+    <ul class="rginavbar">
+        <li data-ng-repeat="item in breadcrumb track by $index">
+            <a style="text-decoration: none; cursor: pointer;" href="#/{{menuItem.path}}">
+                <!-- <span class="rginavbar_sel">{{item.label}}</span> -->
+                <span data-ng-click="selectMenu(item)" data-ng-class="{'rginavbar': menuObj.currentSelectedCode != item.code, 'rginavbar_sel': menuObj.currentSelectedCode == item.code}">
+                    {{item.label}}
+                </span>
+            </a>
+            <span class="separatore" data-ng-if="$index + 1 < breadcrumb.length">►</span>
+        </li>
+    </ul>
+</div>
