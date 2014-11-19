@@ -38,7 +38,7 @@
     <div flex layout="vertical" layout-sm="horizontal" style="background: #cecece;background: -moz-linear-gradient(top, #cecece 2%, #ffffff 99%);background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, #cecece), color-stop(99%, #ffffff));background: -webkit-linear-gradient(top, #cecece 2%, #ffffff 99%);background: -o-linear-gradient(top, #cecece 2%, #ffffff 99%);background: -ms-linear-gradient(top, #cecece 2%, #ffffff 99%);background: linear-gradient(to bottom, #cecece 2%, #ffffff 99%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cecece', endColorstr='#ffffff', GradientType=0);">
         <!-- <section layout="horizontal" flex> -->
         <!-- <md-sidenav flex-sm="33" flex-md="20" component-id="menu"> -->
-        <aside flex-sm="33" flex-md="20" style="background: #587c9e;" data-ng-hide="!main.menu.isVisible" class="nga-fast nga-stagger nga-rotate-left">
+        <aside flex-sm="33" flex-md="20" style="background: #587c9e;" data-ng-hide="!main.menu.isVisible" class="nga-default nga-stagger nga-fade">
             <!-- <ul class="menu">
                 <li class="parent">
                     <a style="text-decoration: none;" href="#/home">
@@ -65,8 +65,8 @@
         <div layout="vertical" layout-align="space-around">
             <div id="menufolding">
                 <a id="folding" style="cursor: pointer;" data-ng-click="main.toggleMenu()">
-                    <img src="images/foldMenu.png" id="foldingmenu" data-ng-if="main.menu.isVisible" class="nga-fast nga-stagger nga-rotate-right">
-                    <img src="images/unfoldMenu.png" id="foldingmenu" data-ng-if="!main.menu.isVisible" class="nga-fast nga-stagger nga-rotate-left">
+                    <img src="images/foldMenu.png" id="foldingmenu" data-ng-if="main.menu.isVisible">
+                    <img src="images/unfoldMenu.png" id="foldingmenu" data-ng-if="!main.menu.isVisible">
                 </a>
             </div>
             <div></div>
@@ -78,7 +78,7 @@
             <![endif]-->
             <rgi-menu-breadcrumb menu-obj="main.menu"></rgi-menu-breadcrumb>
 
-            <div layout="vertical" flex data-ng-view class="nga-fast nga-stagger nga-slide-right"></div>
+            <div layout="vertical" flex data-ng-view class="nga-fast nga-stagger nga-slide-up"></div>
         </main>
 
     </div>

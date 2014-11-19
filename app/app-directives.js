@@ -13,21 +13,15 @@ directive('rgiMenuBreadcrumb', function() {
             menuObj: '='
         },
         controller: ['$scope', '$rootScope', 'menuService', function($scope, $rootScope, menuService) {
-            $scope.breadcrumb = [];
+            // $scope.breadcrumb = [];
 
             // if(!$scope.menuObj.breadcrumb[menu.code]) {
-            //     		$scope.menuObj.breadcrumb[menu.code] = {'label': menu.label, 'path': menu.path};
-            //     	}
+            //          $scope.menuObj.breadcrumb[menu.code] = {'label': menu.label, 'path': menu.path};
+            //      }
 
             $rootScope.$on('menuSelected', function(event, menu) {
-                var codes = menuService.getMenuCodeHierarchy($scope.menuObj.menuItems, menu.code);
-                codes = codes.reverse();
-                $scope.breadcrumb = [];
-                $scope.breadcrumb.push(menuService.getTheRoot($scope.menuObj.menuItems));
-                if (!menu.isRoot) {
-                    for (var index in codes) {
-                        $scope.breadcrumb.push(menuService.getMenuByCode(codes[index], $scope.menuObj.menuItems));
-                    }
+                if ($scope.menuObj) {
+                    menuService.fillBreadcrumb($scope.menuObj, menu);
                 }
             });
 
@@ -54,10 +48,10 @@ directive('rgiMenu', function() {
             };
 
             // $scope.isCurrentMenuSelected = function(menuItem) {
-            // 	if(menuItem && $scope.menuObj.selectedMenuItem && !menuItem.isRoot && $scope.menuObj.selectedMenuItem.code === menuItem.code) {
-            // 		return true;
-            // 	}
-            // 	return false;
+            //  if(menuItem && $scope.menuObj.selectedMenuItem && !menuItem.isRoot && $scope.menuObj.selectedMenuItem.code === menuItem.code) {
+            //      return true;
+            //  }
+            //  return false;
             // };
 
             $scope.getNumber = function(num) {

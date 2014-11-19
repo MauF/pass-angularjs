@@ -42,6 +42,17 @@ provider("menuService", [function() {
                     }
                     menuObj.currentSelectedCode = menu.code;
                 },
+                fillBreadcrumb: function(menuObj, menu) {
+                    var codes = this.getMenuCodeHierarchy(menuObj.menuItems, menu.code);
+                    codes = codes.reverse();
+                    menuObj.breadcrumb = [];
+                    menuObj.breadcrumb.push(this.getTheRoot(menuObj.menuItems));
+                    if (!menu.isRoot) {
+                        for (var index in codes) {
+                            menuObj.breadcrumb.push(this.getMenuByCode(codes[index], menuObj.menuItems));
+                        }
+                    }
+                },
                 setMenuSelected: function(menuItems, selected) {
                     for (var index in menuItems) {
                         menuItems[index].isSelected = selected;
@@ -98,6 +109,12 @@ provider("menuService", [function() {
                     if (!menu.code) {
                         throw new Error("MenuItem must have a code associated!!! " + angular.toJson(menu, true));
                     }
+
+                    if (!menu.path) {
+                        throw new Error("MenuItem must have a path associated!!! " + angular.toJson(menu, true));
+                    }
+
+                    // todo check the uniqueness of all the codes and paths 
 
                     menu.level = level;
                     menu.isSelected = false;

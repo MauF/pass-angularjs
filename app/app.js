@@ -17,4 +17,15 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/home', {
     templateUrl: 'home.html'
   });
+  $routeProvider.when('/testSingleFn', {
+    template: '<div flex layout="vertical" layout-align="center center">'
+              +'<p>Test Test</p>'
+              +'</div>'
+  });
+  $routeProvider.when('/test-view2', {
+    template: '<div></div>'
+  });
+  $routeProvider.when('/testViews', {
+    template: '<div></div>'
+  });
 }]);

@@ -21,12 +21,18 @@ controller('bodyCtrl', ['$log', '$rootScope', 'menuService', '$location', '$http
     success(function(data, status, headers, config) {
         menuService.setMenuObj(data);
         that.menu = menuService.getMenuObj();
+        that.menu.breadcrumb = [];
+        if ($location.path() && $location.path() != '') {
+            var menuItem = menuService.getMenuByPath($location.path(), that.menu.menuItems);
+            if (menuItem) {
+                menuService.selectMenu(that.menu, menuItem);
+                menuService.fillBreadcrumb(that.menu, menuItem);
+            }
+        }
     }).
     error(function(data, status, headers, config) {
         throw new Error("error occurred while getting the menu information!!!");
     });
-
-    
 
     // var processMenu = function(menuItems, level, parentCode) {
     //     if (!level) {
@@ -48,16 +54,16 @@ controller('bodyCtrl', ['$log', '$rootScope', 'menuService', '$location', '$http
         // alert(data.label);
     });
 
-    // $rootScope.$on('$locationChangeSuccess', function(event, current, previous, rejection) { 
-    // $log.info("event", angular.toJson(event, true));
-    // $log.info("current", angular.toJson(current, true));
-    // $log.info("previous", angular.toJson(previous, true));
-    // $log.info("rejection", angular.toJson(rejection, true));
-    // $log.info("$location.path", angular.toJson($location.path(), true));
-    //  		var menuItem = menuService.getMenuByPath($location.path(), that.menu.menuItems);
-    //  		if(menuItem) {
-    //  			menuService.selectMenu(that.menu, menuItem);
-    //  		}
+    // $rootScope.$on('$locationChangeSuccess', function(event, current, previous, rejection) {
+    //     $log.info("event", angular.toJson(event, true));
+    //     $log.info("current", angular.toJson(current, true));
+    //     $log.info("previous", angular.toJson(previous, true));
+    //     $log.info("rejection", angular.toJson(rejection, true));
+    //     $log.info("$location.path", angular.toJson($location.path(), true));
+    //     var menuItem = menuService.getMenuByPath($location.path(), that.menu.menuItems);
+    //     if (menuItem) {
+    //         menuService.selectMenu(that.menu, menuItem);
+    //     }
     // });
 
     this.toggleMenu = function() {

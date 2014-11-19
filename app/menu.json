@@ -6,7 +6,7 @@
         "children": []
     }, {
         "label": "Test-views",
-        "path": "",
+        "path": "testViews",
         "code": "views",
         "children": [{
             "label": "Test-view1",
@@ -15,7 +15,7 @@
             "children": []
         }, {
             "label": "Test-view2",
-            "path": "",
+            "path": "test-view2",
             "code": "views.view2",
             "children": [{
                 "label": "Test-view2-child",
@@ -25,7 +25,7 @@
         }]
     }, {
         "label": "Test-single-fn",
-        "path": "",
+        "path": "testSingleFn",
         "code": "testSingleFn",
         "children": []
     }],
