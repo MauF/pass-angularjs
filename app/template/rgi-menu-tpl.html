@@ -30,7 +30,9 @@
             <div class="vocemenu" data-ng-click="selectMenu(menuItem)">
                 <div>
                     <span data-ng-repeat="time in getNumber(menuItem.level) track by $index">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span data-ng-if="menuObj.currentSelectedCode == menuItem.code">&rarr;</span>
                     {{menuItem.label}}
+                    <span data-ng-if="menuObj.currentSelectedCode == menuItem.code">&larr;</span>
                 </div>
             </div>
         </a>
